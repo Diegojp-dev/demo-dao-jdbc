@@ -104,10 +104,13 @@ public class SellerDaoJDBC implements SellerDao {
 			
 			st.setInt(1, id);
 			
-			int lineAffected = st.executeUpdate();
+			 st.executeUpdate();
+			
 		}
 		catch(SQLException e) {
 			throw new DbException(e.getMessage());
+		}finally {
+			DB.closeStatement(st);
 		}
 		
 	}
